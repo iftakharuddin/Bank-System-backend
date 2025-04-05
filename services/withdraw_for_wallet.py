@@ -6,10 +6,12 @@ from models.models import *
 from forms.forms import *
 from services.response_handler import *
 from decimal import Decimal
+from services.middleware import *
 
 SECRET_KEY = "your_secret_key"  # Change this securely
 
 class VerifyTransaction(Resource):
+    # @authenticate_client
     def post(self):
         form = VerifyTransactionForm()
 
@@ -61,6 +63,7 @@ class VerifyTransaction(Resource):
 
 
 class VerifyOTPWithdraw(Resource):
+    # @authenticate_client
     def post(self):
         form = OTPTransactionForm()
         if not form.validate_on_submit():

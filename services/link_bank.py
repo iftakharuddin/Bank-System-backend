@@ -6,8 +6,10 @@ import jwt
 import datetime
 from services.response_handler import *
 from forms.forms import *
+from services.middleware import *
 
 class VerifyBankAccount(Resource):
+    # @authenticate_client
     def post(self):
         form = VerifyAccountForm()
         if not form.validate_on_submit():
@@ -52,6 +54,7 @@ class VerifyBankAccount(Resource):
 SECRET_KEY = "your_secret_key"  # Change this to a secure key
 
 class VerifyOTPForLinkBank(Resource):
+    # @authenticate_client
     def post(self):
         form = OTPforLinkForm()
 
