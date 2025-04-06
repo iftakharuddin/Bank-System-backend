@@ -1,5 +1,6 @@
 from models.models import db, APIClient
 import secrets
+from app import app
 
 def register_client(client_name):
     client = APIClient(client_name=client_name)
@@ -11,3 +12,6 @@ def register_client(client_name):
 
     return {"client_id": client.client_id, "client_secret": client_secret}
 
+
+with app.app_context():
+    print(register_client("TakaFlow"))

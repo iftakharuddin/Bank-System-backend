@@ -57,7 +57,7 @@ class VerifyOTPForLinkBank(Resource):
     # @authenticate_client
     def post(self):
         form = OTPforLinkForm()
-
+        # print(request.get_json())
         if not form.validate_on_submit():
             return ResponseHandler.generate("E002", data=form.errors)
         

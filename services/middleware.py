@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, jsonify
-from models import APIClient
+from models.models import APIClient
 
 def authenticate_client(f):
     @wraps(f)
